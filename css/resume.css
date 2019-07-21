@@ -1,0 +1,200 @@
+/*!
+ * Start Bootstrap - Resume v5.0.7 (https://startbootstrap.com/template-overviews/resume)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
+ */
+
+body {
+  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  padding-top: 54px;
+  color: #868e96;
+ background: #ADA996;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    /*padding-left: 17rem*/
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #343a40;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 5.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.subheading {
+  text-transform: capitalize;
+  font-weight: 400;
+  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 1.2rem;
+}
+
+.social-icons a {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #495057;
+  color: #fff !important;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin-right: 1rem;
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+.social-icons a:hover {
+  background-color: #165994;
+}
+
+.dev-icons {
+  font-size: 3rem;
+}
+
+.dev-icons .list-inline-item i:hover {
+  color: #BD5D38;
+}
+
+
+@media (min-width: 992px) {
+  .img-profile {
+    max-width: 8rem;
+    max-height: 6rem;
+    border: 1rem solid rgba(255, 255, 255, 0.2);
+   float: left
+  }
+ }
+
+section.resume-section {
+  padding-top: 2rem !important;
+  padding-bottom: 1rem !important;
+  max-width: 75rem;
+}
+
+section.resume-section .resume-item .resume-date {
+  min-width: none;
+}
+
+@media (min-width: 768px) {
+  section.resume-section {
+        /*min-height: 100vh;*/
+  }
+  section.resume-section .resume-item .resume-date {
+    min-width: 18rem;
+  }
+}
+
+@media (min-width: 992px) {
+  section.resume-section {
+    /*padding-top: 3rem !important;*/
+    padding-bottom: 0rem !important;
+  }
+}
+
+.bg-primary {
+  background-color: #5b5c60!important;
+}
+
+.text-primary {
+    color: #165994!important;
+}
+a {
+  color:  #165994
+}
+
+a:hover, a:focus, a:active {
+  color:  #165994
+}
+.mb-3, .my-3 {
+    margin-bottom: 0rem!important
+}
+.mb-5, .my-5 {
+    margin-bottom: 1rem!important;
+}
+
+.progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: 3.25rem;
+    margin-top: 21px;
+}
+.progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 2rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: 3.25rem;
+    margin-top: 3rem;
+}
+.progress-bar {
+      background-color: #3185dd;
+}
+.border-primary {
+    border: 4px solid #8c96a0!important;
+
+    /*box-shadow: 5px 10px #495057;*/
+}
+.card-img-top{
+  max-height: 9rem
+}
+.badge-primary{
+  background-color:#165994;
+  border-radius: 30px;
+
+}
+.badge-secondary {
+  background-color:#165994;
+  border-radius: 30px;
+}
+
+.card-header {
+     padding: .0rem 0rem;
+    background-color: #165994!important;
+    margin-bottom: 0;
+    
+}
+.card-header h2 {
+  margin-top:auto;
+  margin-bottom: auto;
+  color: white;
+  text-align:center;
+}
