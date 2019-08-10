@@ -86,12 +86,22 @@ p.lead {
 @media (min-width: 992px) {
   .img-profile {
     max-width: 8rem;
-    max-height: 6rem;
-    border: 1rem solid rgba(255, 255, 255, 0.2);
-   float: left
-  }
+    max-height: 4rem;
+    border: 0.29rem solid #ebf5ff00;
+    float: left;
+
+}
+
  }
 
+
+@media (max-width: 990px){
+  .card-title {
+    margin-bottom: 0.75rem;
+    border:0px !important;
+    /* color: red; */
+}
+}
 
 
 section.resume-section .resume-item .resume-date {
@@ -221,4 +231,14 @@ section.resume-section {
         border-bottom-right-radius: 50px;
         border: 1px solid blue
 
+}
+.card-title {
+    margin-bottom: 0.75rem;
+    border-top: 4px solid #165994;
+    border-left: 4px solid #165994;
+    border-right: 4px solid #165994;
+    
+    /* border-bottom: 3px solid #165994; */
+    border-radius: 15px;
+    
 }
