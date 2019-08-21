@@ -1,0 +1,26 @@
+
+<div class="card">
+	
+<div class="card-header">Skills</div>
+
+
+<div class="row w-100">
+	
+<div class="col-md-6" ng-repeat="skill in skills">
+
+<div class="card-body" style="margin-bottom:1rem; padding: 0rem; margin-left: 1rem;">
+	
+<div class="card-header" style="margin-bottom:1rem; text-align:center;background-color:rgba(193, 190, 190, 0.03);border-bottom: 0px solid rgba(0,0,0,.125); ">{{skill.type}}</div>
+	
+<ul class="list-group" ng-repeat="lang in skill.value_hash">
+  <li class="list-group-item">{{lang.langName}} <span class="float-right">{{lang.width}}</span></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+ 
