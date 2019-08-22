@@ -2,10 +2,10 @@
 app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 
   $scope.skills=[{type:'Languages',value:['Python','Java Script','C','Html','Css'],
-                  value_hash:[{langName:'Python',width:'70%'},{langName:'Javascript',width:'60%'},
-                  {langName:'C',width:'50%'},
-                   {langName:'Html',width:'40%'},
-                    {langName:'Css',width:'40%'}
+                  value_hash:[{langName:'Python',width:'90%'},{langName:'Javascript',width:'80%'},
+                  {langName:'C',width:'70%'},
+                   {langName:'Html',width:'80%'},
+                    {langName:'Css',width:'80%'}
                   ]},
 
 
@@ -23,7 +23,7 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 
 
                   {type:' Tools and Version Control',value:['git'],
-                  value_hash:[{langName:'git',width:'65%'},{langName:'Qlik View',width:'100%'},{langName:'Qlik Sense',width:'100%'}]
+                  value_hash:[{langName:'git',width:'75%'},{langName:'Qlik View',width:'95%'},{langName:'Qlik Sense',width:'95%'}]
                 },
 
                   {type:'Machine Learning',value:['Cnn','Tensor flow','Keras'],

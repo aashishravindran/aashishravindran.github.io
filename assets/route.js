@@ -18,6 +18,10 @@ app.config(function($routeProvider) {
       templateUrl: 'views/skills.html',
       controller:'SkillsCtrl'
 
+    }).when('/education', {
+      templateUrl: 'views/education.html',
+      controller:'EducationCtrl'
+
     })
     .otherwise({
       redirectTo: '/home'

@@ -1,28 +1,33 @@
-<div class="card text-center ">
-  <div class="card-body">
-
-    <p class="card-text">Seeking Full time opportunities in software Development</p>
-    <span><i class="fab fa-github fa-fw  w3-large"></i><a href="https://github.com/aashishravindran" class="card-link">github</a></span>
-             <span><i class="fas fa-file-pdf fa-fw  w3-large"></i><a href="https://drive.google.com/open?id=17_Q6gxDW2Hbr_Ab77HY-dQ_8Vr_4MGTl" class="card-link">Resume</a></span>
-              <span><i class="fab fa-linkedin-in fa-fw  w3-large"></i><a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" class="card-link">Linkedin</a></span>
-              <span><i class="fab fa-wordpress-simple fa-fw  w3-large"></i><a href="https://perceptionspenned.wordpress.com/" class="card-link">Wordpress</a></span>
-  </div>
-  <div class="card-footer text-muted">
-    Last updated  : Aug-18-2019
+<div class="jumbotron jumbotron-fluid d-none d-lg-block">
+ 
+  <div class="container">
+    <h1 class="display-4">Aashish Ravindran!</h1>
+    <p class="lead">Passionately Curious | Tech Enthusiast | Potterhead</p>
   </div>
 </div>
 
-
-<div class="card" style="margin-top: 1rem;" ng-controller="EducationCtrl">
-  <div class="card-body">
-    <div class="mb-2"ng-repeat="education in education">
-    <h6 class="card-title heading">{{education.degree}} <span class="text-primary float-right">{{education.duration}}</span></h6> 
-    <h6 class="card-subtitle mb-2 text-muted">{{education.in+' | '+education.cgpa}}</h6>
-    <span class="card-text badge badge-primary skill" ng-repeat="course in education.courses track by $index">{{course}}</span>
-
-   
+<div class="row">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Highlights</h5>
+        <p class="card-text">Currently  pursuing my Masters in Computer Engineering at Stony Brook University</p>
+        <p class="card-text">Seeking Full-time Opportunities in Software Development</p>
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+      </div>
+    </div>
   </div>
-</div>  
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Hobbies and Interests</h5>
+        <p class="card-text"><i class="fas fa-desktop"></i>Netflix and Chill</p>
+          <p class="card-text"><i class="fas fa-chess"></i>Chess</p>
+          <p class="card-text"><i class="fas fa-book-open"></i>Reading</p>
+          <p class="card-text"><i class="fas fa-futbol"></i>Soccer</p>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- //education.courses[course.length-1] -->
 
