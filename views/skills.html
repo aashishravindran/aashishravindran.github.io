@@ -10,10 +10,16 @@
 
 <div class="card-body" style="margin-bottom:1rem; padding: 0rem; margin-left: 1rem;">
 	
-<div class="card-header" style="margin-bottom:1rem; text-align:center;background-color:rgba(193, 190, 190, 0.03);border-bottom: 0px solid rgba(0,0,0,.125); ">{{skill.type}}</div>
+<div class="card-header" style="text-align:left;background-color:rgba(193, 190, 190, 0.03);border-bottom: 0px solid rgba(0,0,0,.125);">{{skill.type}}</div>
 	
-<ul class="list-group" ng-repeat="lang in skill.value_hash">
-  <li class="list-group-item">{{lang.langName}} <span class="float-right">{{lang.width}}</span></li>
+<ul  ng-repeat="lang in skill.value_hash">
+    <p class="custonpro"> {{lang.langName}}</p>
+    <div class="progress is-small">
+  <div class="progress-bar" role="progressbar" aria-valuenow="{{lang.width}}",aria-valuemin="0" 
+  aria-valuemax="100" ng-style="{'width': '{{lang.width}}'} ">
+    {{lang.width}}
+  </div>
+</div>
 </ul>
 
 </div>
@@ -22,5 +28,6 @@
 </div>
 </div>
 
-</div>
- 
+<!--
+
+  <li class="list-group-item">{{lang.langName}} <span class="float-right">{{lang.width}}</span></li>-->
