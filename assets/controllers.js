@@ -36,14 +36,16 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 app.controller("ExpCtrl", function($scope, $http, $rootScope, $location) {
   
   $scope.expName=[{title:'Research Assistant',location:'The Center For Excellence In Wireless and Information Technology',
-  description:['Evaluate the performance of VMAC by conducting experiments on a Raspberry Pi Test bed.',
-  'Analyze the loss and latency of VMAC and compare it to Ad-hoc','Developed the User space code for CRC (Complex Redundancy check) to help identify areas where packet corruption occurs in a frame'
-  ,'Developed python scripts to compute re-transmission delays and Loss Aggregation to further better understanding of transmission loss patterns'
-  ],duration:'Jan 2019-Present'},
+  description:['Performed extensive evaluations and analysis on V -Mac (A data centric Mac layer Architecture)',
+  'Analyze the loss and latency of VMAC and compare it to Ad-hoc','Developed user-space code for CRC (Cyclic Redundancy Check)'
+  ,'Developed modular Python code to analyze patterns in packet loss using statistical measures like probability Mass Functions and various Pattern Recognition Algorithms',
+  'Implemented support for multi-cast video transmission in an Ad hoc network'
+  ],duration:'Jan 2019-August 2019'},
     {title:'Application Development Analyst',location:'Accenture Solutions Pvt Ltd'
     ,description:['Developed Qlik View/Qlik Sense dashboards for clients in the healthcare domain.',
-    'Designed dashboards with complex features like forecasts and Erlang B calculations for staffing',
-    'Spearheaded the initial development of Qlik Sense Mashups : A fusion of web technologies (Html,Css and Javascript) and Qlik Sense visualizations.'], duration:'May 2016-July 2018'},
+    'Developed Phone Staffing Analysis (Erlang B calculation) dashboard by overcoming tool limitations',
+    'Spearheaded the initial development of Qlik Sense Mashups using responsive design and JavaScript.','Won the Accenture Celebrates Excellence Award in the “Future Ready Skill” category'
+    ], duration:'May 2016-July 2018'},
     ];
     // TODO: verify passwords are the same and notify user
    
@@ -54,21 +56,22 @@ app.controller("ProjCtrl", function($location, $scope, $http, $rootScope) {
   $scope.project=[
   {title:'Posture Recognition using Acoustics',tools:['Python','Android','Signal Processing','Tensor Flow','Cnn'],gitshortRepo:"git:aashishravindran/PostureRecognition",gitrepo:"https://github.com/aashishravindran/PostureRecognition",
   description:["A Machine Learning Model to identify body Postures like sitting and standing using Acoustics."
-  ,"By identifying the direct path and corellating with the acoustic echoes, we were able to train a Machine learning model to identify body postures"]},
+  ,"By filtering out the noise, we were able to isolate the face region echoes to use for model training"]},
   {title:'Yelp Camp',tools:['Mongo Db','Express Js','EJS','Passport Js','Node Js'],gitshortRepo:"git:aashishravindran/YelpCamp",gitrepo:"https://github.com/aashishravindran/YelpCamp"
-  ,description:["Yelp Camp is a Web Application built using REST APi which allows camping enthusiasts to showcase their camping destinations",
+  ,description:["Yelp Camp is a Web Application built using REST APi which allows camping enthusiasts to showcase their camping destinations","Yelp Camp was developed as part of an online course The Web Developer Boot Camp by Udemy", 
   "Visit Yelp Camp at: https://guarded-falls-67560.herokuapp.com/"]},
   
-  {title:'16 Bit RISC Architecture with 5 stage pipeline Execution',
-  tools:['System C'],
+  {title:'Analysis of Cyclic Redundancy Check',
+  tools:['Python'],
   gitshortRepo:"",gitrepo:""
-  ,description:["Modeled a five stage RISC architecture covering Instruction Fetch, Decode, Execution, Memory Access and Write Back"]}
+  ,description:["Developed python scripts to perform byte level analysis of CRC by leveraging metrics like loss burst length and interval",
+                "Helped identify patterns in missing bytes across runs and receivers and reduced analysis time by 80%"]}
   ,
-   {title:'Robot Navigation in a Grid',
-  tools:['System C'],
+   {title:'Video Quantification',
+  tools:['Open CV', 'Image Processing'],
   gitshortRepo:"",gitrepo:""
-  ,description:["Developed System C code for simulating the movement of robots in a two dimensional grid with obstacles",
-  " There exists a global server which co ordinates with the robots as they move along a 2D grid. The server is responsible for warning the robots as they near obstacles"]}
+  ,description:["Implemented standard video quantification metrics to analyze frame loss for multi-cast",
+  "By comparing raw pixel values, we were able to identify overall frame loss and % of pixels loss within a frame"]}
 
    ];
 
