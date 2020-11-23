@@ -35,7 +35,10 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 
 app.controller("ExpCtrl", function($scope, $http, $rootScope, $location) {
   
-  $scope.expName=[{title:'Research Assistant',location:'The Center For Excellence In Wireless and Information Technology',
+  $scope.expName=[{title:'Software Development Engineer',location:'Amazon Web Services',
+  description:['Part of Service Quotas Team'
+  ],duration:'March 2020-Present'},
+    {title:'Research Assistant',location:'The Center For Excellence In Wireless and Information Technology',
   description:['Performed extensive evaluations and analysis on V -Mac (A data centric Mac layer Architecture)',
   'Analyze the loss and latency of VMAC and compare it to Ad-hoc','Developed user-space code for CRC (Cyclic Redundancy Check)'
   ,'Developed modular Python code to analyze patterns in packet loss using statistical measures like probability Mass Functions and various Pattern Recognition Algorithms',
