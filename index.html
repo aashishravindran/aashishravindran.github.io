@@ -42,7 +42,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="#home">About <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -79,9 +79,9 @@
           		<p class="socials"><i class="fa fa-envelope"></i><a class="card-link" id="mail" href="mailto:">raashish5594.ar@gmail.com</p></a>
                 <hr>
                 <p class="socials"><i class="fab fa-github fa-fw  w3-large"></i><a href="https://github.com/aashishravindran" class="card-link">Github</a></p>
-          		<p class="socials"><i class="fas fa-file-pdf fa-fw  w3-large"></i><a href="https://drive.google.com/open?id=1tFZqhS5N-vPG2PBKYPdQg9L54TwRTKdq" class="card-link">Resume</a></p>
-                    <p class="socials"><i class="fab fa-linkedin-in fa-fw  w3-large"></i><a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" class="card-link">LinkedIn</a></p>
-                    <p class="socials"><i class="fab fa-twitter fa-fw  w3-large"></i><a href="https://twitter.com/aash_ravi" class="card-link">Twitter</a></p>
+          		
+                <p class="socials"><i class="fab fa-linkedin-in fa-fw  w3-large"></i><a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" class="card-link">LinkedIn</a></p>
+                <p class="socials"><i class="fab fa-twitter fa-fw  w3-large"></i><a href="https://twitter.com/aash_ravi" class="card-link">Twitter</a></p>
                     
     			
  				  				 
@@ -107,7 +107,12 @@
 	</footer>
 		
 </div>	
-		<!-- jQuery -->
+	<script src="text/javascript">
+	$(".nav .nav-link").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).addClass("active");
+});
+	</script>
 	</body>
 	
 </html>

@@ -36,7 +36,7 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 app.controller("ExpCtrl", function($scope, $http, $rootScope, $location) {
   
   $scope.expName=[{title:'Software Development Engineer',location:'Amazon Web Services',
-  description:['Part of Service Quotas Team'
+  description:['Part of Service Quotas team, which provides customers a one stop shop to view and manage their AWS Quotas','Develop Api’s and features which enable customers to request “Quota increases” for AWS resources'
   ],duration:'March 2020-Present'},
     {title:'Research Assistant',location:'The Center For Excellence In Wireless and Information Technology',
   description:['Performed extensive evaluations and analysis on V -Mac (A data centric Mac layer Architecture)',
@@ -60,10 +60,7 @@ app.controller("ProjCtrl", function($location, $scope, $http, $rootScope) {
   {title:'Posture Recognition using Acoustics',tools:['Python','Android','Signal Processing','Tensor Flow','Cnn'],gitshortRepo:"git:aashishravindran/PostureRecognition",gitrepo:"https://github.com/aashishravindran/PostureRecognition",
   description:["A Machine Learning Model to identify body Postures like sitting and standing using Acoustics."
   ,"By filtering out the noise, we were able to isolate the face region echoes to use for model training"]},
-  {title:'Yelp Camp',tools:['Mongo Db','Express Js','EJS','Passport Js','Node Js'],gitshortRepo:"git:aashishravindran/YelpCamp",gitrepo:"https://github.com/aashishravindran/YelpCamp"
-  ,description:["Yelp Camp is a Web Application built using REST APi which allows camping enthusiasts to showcase their camping destinations","Yelp Camp was developed as part of an online course The Web Developer Boot Camp by Udemy", 
-  "Visit Yelp Camp at: https://guarded-falls-67560.herokuapp.com/"]},
-  
+
   {title:'Analysis of Cyclic Redundancy Check',
   tools:['Python'],
   gitshortRepo:"",gitrepo:""
