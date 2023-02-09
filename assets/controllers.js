@@ -5,7 +5,9 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
                   value_hash:[{langName:'Python',width:'90%'},{langName:'Javascript',width:'80%'},
                   {langName:'C',width:'70%'},
                    {langName:'Html',width:'80%'},
-                    {langName:'Css',width:'80%'}
+                    {langName:'Css',width:'80%'},
+                    {langName:'Ruby',width:'80%'},
+                    {langName:'Java',width:'80%'}
                   ]},
 
 
@@ -22,12 +24,12 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 
 
 
-                  {type:' Tools and Version Control',value:['git'],
-                  value_hash:[{langName:'git',width:'75%'},{langName:'Qlik View',width:'95%'},{langName:'Qlik Sense',width:'95%'}]
+                  {type:' Tools and Cloud',value:['git'],
+                  value_hash:[{langName:'git',width:'95%'},{langName:'Qlik View',width:'95%'},{langName:'Qlik Sense',width:'95%'}, {langName:'AWS',width:"60%"}]
                 },
 
                   {type:'Machine Learning',value:['Cnn','Tensor flow','Keras'],
-                  value_hash:[{langName:'Cnn',width:'65%'},{langName:'Tensor Flow',width:'65%'},{langName:'Keras',width:'65%'}]
+                  value_hash:[{langName:'Cnn',width:'35%'},{langName:'Tensor Flow',width:'35%'},{langName:'Keras',width:'35%'}]
 
                 }]
 
@@ -35,8 +37,10 @@ app.controller("SkillsCtrl", function($rootScope, $scope, $http, $location) {
 
 app.controller("ExpCtrl", function($scope, $http, $rootScope, $location) {
   
-  $scope.expName=[{title:'Software Development Engineer',location:'Amazon Web Services',
-  description:['Part of Service Quotas team, which provides customers a one stop shop to view and manage their AWS Quotas','Develop Api’s and features which enable customers to request “Quota increases” for AWS resources'
+  $scope.expName=[{title:'Software Development Engineer II',location:'Amazon Web Services',
+  description:['Part of Service Quotas team, which provides customers a one stop shop to view and manage their AWS Quotas',
+  'Develop Api’s and features which enable customers to request “Quota increases” for AWS resources',
+   'Reduce Service Quotas Region Expansion time from 5 months to 2 months'
   ],duration:'March 2020-Present'},
     {title:'Research Assistant',location:'The Center For Excellence In Wireless and Information Technology',
   description:['Performed extensive evaluations and analysis on V -Mac (A data centric Mac layer Architecture)',
@@ -50,7 +54,6 @@ app.controller("ExpCtrl", function($scope, $http, $rootScope, $location) {
     'Spearheaded the initial development of Qlik Sense Mashups using responsive design and JavaScript.','Won the Accenture Celebrates Excellence Award in the “Future Ready Skill” category'
     ], duration:'May 2016-July 2018'},
     ];
-    // TODO: verify passwords are the same and notify user
    
 });
 
@@ -81,7 +84,7 @@ app.controller("ProjCtrl", function($location, $scope, $http, $rootScope) {
 app.controller("EducationCtrl", function($location, $scope, $http, $rootScope) {
 
 
-$scope.education=[{degree:'Master Of Science',in:'Computer Engineering',university:'Stony Brook University',duration:'Aug 2018 - Present'
+$scope.education=[{degree:'Master Of Science',in:'Computer Engineering',university:'Stony Brook University',duration:'Aug 2018 - Dec 2020'
 ,courses:['Mobile Sensing Systems','Cyber Physical Systems','Wireless Communication','Digital Image Processing','Computer Aided Design',
 'Topics in Electrical Sciences','System Spec and Modeling'],cgpa:'3.64/4.00'},
 

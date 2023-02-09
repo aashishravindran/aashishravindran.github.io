@@ -1,18 +1,10 @@
-<div class="jumbotron jumbotron-fluid d-none d-lg-block">
- 
-  <div class="container">
-    <h1 class="display-4">Aashish Ravindran!</h1>
-    <p class="lead">Passionately Curious | Tech Enthusiast | Food Lover</p>
-  </div>
-</div>
-
 <div class="row">
   <div class="col-lg-8">
     <div class="card h-100">
       <div class="card-body">
-        <h5 class="card-title font-weight-bold">Highlights</h5>
-        <p class="card-text">Software Development Engineer at Amazon Web Services.  Passionately Curious !! </p>
-        <p class="card-text">Tech-Enthusiast with a Masters Degree in Computer Engineering from Stony Brook University.</p>
+        <h5 class="card-title font-weight-bold">In a Nutshell</h5>
+        <p class="card-text">Seasoned Software Engineer with 5+ years of experience in Qlik Sense, Java, Ruby with a proven track record of designing and delivering scalable systems to tackle complex business problems. </p>
+        <p class="card-text"></p>
         
       </div>
     </div>
@@ -29,23 +21,36 @@
     </div>
   </div>
 </div>
-<div class="row  d-none d-lg-block">
+
+<hr>
+<div class="card" ng-controller="SkillsCtrl">
+	
+  <div class="card-header">Skills</div>
+  
+  
+  <div class="row w-100">
     
-    <div class="col-sm-12">
-   <div class="card h-50 mystack">
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">Skills</h5>
-        <span> 
-            <img class="img-responsive" src="../mongo.png">
-            <img class="img-responsive" src="../html.png">
-            <img class="img-responsive" src="../js.png">
-            <img class="img-responsive" src="../express.png">
-            <img class="img-responsive" src="../python.png">
-            <img class="img-responsive" src="../qlik-sense.png">
-            <img class="img-responsive"src="../tf_logo_social.png">
-          </span>
-      </div>
+  <div class="col-md-6" ng-repeat="skill in skills">
+  
+  <div class="card-body" style="margin-bottom:1rem; padding: 0rem; margin-left: 1rem;">
+    
+  <div class="card-header" style="text-align:left;background-color:rgba(193, 190, 190, 0.03);border-bottom: 0px solid rgba(0,0,0,.125);">{{skill.type}}</div>
+    
+  <ul  ng-repeat="lang in skill.value_hash">
+      <p class="custonpro"> {{lang.langName}}</p>
+      <div class="progress is-small">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{lang.width}}",aria-valuemin="0" 
+    aria-valuemax="100" ng-style="{'width': '{{lang.width}}'} ">
+      {{lang.width}}
     </div>
-</div>
+  </div>
+  </ul>
+  
+  </div>
+  
+  </div>
+  </div>
+  </div>
+
 <!-- //education.courses[course.length-1] -->
 

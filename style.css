@@ -6,6 +6,20 @@ html, body {
   
 
 }
+
+.card {
+  border: 1px solid #33608e;
+  border-radius: 1.25rem;
+}
+
+.profile-card {
+  border-radius: 65%;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  padding: 0.5em .5em .5em;
+  max-width: 50%;
+  margin-left: 20%;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #165994 !important;
