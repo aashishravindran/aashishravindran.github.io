@@ -91,6 +91,46 @@
       60% { opacity: 1; transform: translateX(-10px) translateY(-10px) scale(1.1); }
       100% { opacity: 1; transform: translateX(0) translateY(0) scale(1); }
     }
+    .footer {
+      width: 100%;
+      background: #181818;
+      color: #fff;
+      padding: 18px 0 12px 0;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 1001;
+      font-size: 1.1em;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+    .footer-links a {
+      color: #1abc9c;
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #e50914;
+    }
+    @media (max-width: 600px) {
+      .footer-content {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 10px;
+      }
+      .footer-links a {
+        margin-left: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -133,7 +173,8 @@
         <ul>
           <li>Reduced quota approval time from 3 days to &lt;50 min via per‑resource APIs.</li>
           <li>Cut onboarding from 2 weeks to 1 day with scalable metadata ingestion.</li>
-          <li>Automated infra; deployments 85% faster.</li>
+          <li>Automated infra deployments 85% faster.</li>
+		  <li>Created the Teams first MCP (Model Context Protocol) server for log diving using AWS CloudWatch.</li>
         </ul>
       </li>
       <li><strong>AWS — SDE I</strong><span style="float:right">Mar 2020 – Jun 2022</span>
@@ -179,20 +220,6 @@
 <script>
 const mainHTML = `
   <div id="main" class="visible">
-    <div class="profile-section">
-      <img src="profile.jpg" alt="Aashish Ravindran" class="profile-img">
-      <div class="profile-info">
-        <h2>Aashish Ravindran</h2>
-        <p><strong>SDE II @ Amazon Web Services</strong></p>
-        <p>📍 Seattle, WA</p>
-        <p>📧 <a href="mailto:raashish5594.ar@gmail.com">raashish5594.ar@gmail.com</a></p>
-        <div class="social-links">
-          <a href="https://github.com/aashishravindran" target="_blank">📱</a>
-          <a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" target="_blank">💼</a>
-          <a href="https://twitter.com/aash_ravi" target="_blank">🐦</a>
-        </div>
-      </div>
-    </div>
     <div class="portfolio-content">
       <h2 style="text-align:center;margin:20px 0 40px">Portfolio Sections</h2>
       <div class="card-row">
@@ -244,6 +271,17 @@ window.addEventListener('DOMContentLoaded', function() {
   }, 1600);
 });
 </script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <span>📍 Seattle, WA</span>
+      <span class="footer-links">
+        <a href="https://github.com/aashishravindran" target="_blank" aria-label="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://twitter.com/aash_ravi" target="_blank" aria-label="X">X</a>
+      </span>
+    </div>
+  </footer>
 </body>
 </html>
 
