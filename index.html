@@ -16,7 +16,26 @@
     .card-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
     .card{width:250px;height:250px;border-radius:10px;display:flex;justify-content:center;align-items:center;font-weight:bold;background:#333;color:#fff;cursor:pointer;transition:transform .3s,box-shadow .3s;box-shadow:0 2px 6px rgba(0,0,0,.6)}
     .card:hover{transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,.8)}
-    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);padding:80px 40px 40px;overflow-y:auto;z-index:999}
+    .overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.95);
+      padding: 80px 40px 40px;
+      overflow-y: auto;
+      z-index: 999;
+      display: block;
+    }
+    .overlay.fade-in {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
     .overlay .close{position:absolute;top:20px;right:40px;font-size:2em;cursor:pointer}
     .skill-card{background:#2c3e50;padding:20px;border-radius:10px;width:160px;text-align:center;margin:10px;box-shadow:0 2px 6px rgba(0,0,0,.6)}
     ul{list-style:square;margin-left:20px}
@@ -141,7 +160,7 @@
     </div>
     <h3 style="text-align:center;margin:40px 0 10px">Cloud & Infrastructure</h3>
     <div style="display:flex;flex-wrap:wrap;justify-content:center">
-      <div class="skill-card" style="width:180px"><img src="https://img.icons8.com/color/96/amazon-web-services.png" style="width:50px" alt="AWS"><p>AWS/p></div>
+      <div class="skill-card" style="width:180px"><img src="https://img.icons8.com/color/96/amazon-web-services.png" style="width:50px" alt="AWS"><p>AWS</p></div>
     </div>
     <h3 style="text-align:center;margin:40px 0 10px">Visualization</h3>
     <div style="display:flex;flex-wrap:wrap;justify-content:center"><div class="skill-card" style="width:180px"><img src="https://img.icons8.com/ios-filled/100/66ccff/line-chart.png" style="width:50px" alt="Qlik"><p>QlikView / Qlik Sense</p></div></div>
@@ -164,7 +183,7 @@ const mainHTML = `
       <img src="profile.jpg" alt="Aashish Ravindran" class="profile-img">
       <div class="profile-info">
         <h2>Aashish Ravindran</h2>
-        <p><strong>SDE @ Amazon Web Services</strong></p>
+        <p><strong>SDE II @ Amazon Web Services</strong></p>
         <p>📍 Seattle, WA</p>
         <p>📧 <a href="mailto:raashish5594.ar@gmail.com">raashish5594.ar@gmail.com</a></p>
         <div class="social-links">
@@ -205,11 +224,17 @@ function goBack() {
 }
 function showOverlay(id) {
   const el = document.getElementById(id);
-  if (el) el.style.display = 'block';
+  if (el) {
+    el.classList.remove('fade-out');
+    el.classList.add('fade-in');
+  }
 }
 function closeOverlay(btn) {
   const ov = btn.closest('.overlay');
-  if (ov) ov.style.display = 'none';
+  if (ov) {
+    ov.classList.remove('fade-in');
+    ov.classList.add('fade-out');
+  }
 }
 window.addEventListener('DOMContentLoaded', function() {
   const entry = document.getElementById('entryAnimation');
