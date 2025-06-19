@@ -11,8 +11,8 @@
     .users-page{height:100vh;display:flex;justify-content:center;align-items:center}
     .user-tile{width:200px;height:200px;background:#222;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:1.2rem;cursor:pointer;transition:background .3s,transform .3s,box-shadow .3s;box-shadow:0 2px 6px rgba(0,0,0,.6)}
     .user-tile:hover{background:#e50914;transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,.8)}
-    #main{display:none;padding:40px}
-    #main.visible{display:block}
+    #main{display:none;padding:40px;display:flex;gap:40px;max-width:1200px;margin:0 auto;align-items:flex-start}
+    #main.visible{display:flex !important;}
     .card-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
     .card{width:250px;height:250px;border-radius:10px;display:flex;justify-content:center;align-items:center;font-weight:bold;background:#333;color:#fff;cursor:pointer;transition:transform .3s,box-shadow .3s;box-shadow:0 2px 6px rgba(0,0,0,.6)}
     .card:hover{transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,.8)}
@@ -21,8 +21,10 @@
     .skill-card{background:#2c3e50;padding:20px;border-radius:10px;width:160px;text-align:center;margin:10px;box-shadow:0 2px 6px rgba(0,0,0,.6)}
     ul{list-style:square;margin-left:20px}
     a{color:#1abc9c;text-decoration:none}
-    .profile-section{background:#222;border-radius:10px;padding:30px;margin-bottom:30px;text-align:center}
-    .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:3px solid #e50914}
+    .profile-section{background:#222;border-radius:10px;padding:30px;text-align:center;width:300px;flex-shrink:0;height:fit-content}
+    .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid #e50914;margin-bottom:20px}
+    .profile-info{flex:1}
+    .portfolio-content{flex:1}
     .social-links{margin-top:20px}
     .social-links a{margin:0 10px;color:#fff;font-size:1.5em;transition:color .3s}
     .social-links a:hover{color:#e50914}
@@ -87,29 +89,6 @@
     <div class="user-tile" onclick="enterProfile(this)">
       <div style="font-size:3em;margin-bottom:10px">👤</div>
       View Portfolio
-    </div>
-  </div>
-
-  <div id="main">
-    <div class="profile-section">
-      <img src="profile.jpg" alt="Aashish Ravindran" class="profile-img">
-      <h2>Aashish Ravindran</h2>
-      <p><strong>SDE @ Amazon Web Services</strong></p>
-      <p>📍 Seattle, WA</p>
-      <p>📧 <a href="mailto:raashish5594.ar@gmail.com">raashish5594.ar@gmail.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/aashishravindran" target="_blank">📱</a>
-        <a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" target="_blank">💼</a>
-        <a href="https://twitter.com/aash_ravi" target="_blank">🐦</a>
-      </div>
-    </div>
-
-    <h2 style="text-align:center;margin:20px 0 40px">Portfolio Sections</h2>
-    <div class="card-row">
-      <div class="card" style="background:#f1c40f;color:#000" onclick="showOverlay('summary')">About</div>
-      <div class="card" style="background:#3498db" onclick="showOverlay('experience')">Experience</div>
-      <div class="card" style="background:#2ecc71" onclick="showOverlay('skills')">Skills</div>
-      <div class="card" style="background:#9b59b6" onclick="showOverlay('education')">Education</div>
     </div>
   </div>
 
@@ -179,13 +158,49 @@
   </div>
 
 <script>
+const mainHTML = `
+  <div id="main" class="visible">
+    <div class="profile-section">
+      <img src="profile.jpg" alt="Aashish Ravindran" class="profile-img">
+      <div class="profile-info">
+        <h2>Aashish Ravindran</h2>
+        <p><strong>SDE @ Amazon Web Services</strong></p>
+        <p>📍 Seattle, WA</p>
+        <p>📧 <a href="mailto:raashish5594.ar@gmail.com">raashish5594.ar@gmail.com</a></p>
+        <div class="social-links">
+          <a href="https://github.com/aashishravindran" target="_blank">📱</a>
+          <a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" target="_blank">💼</a>
+          <a href="https://twitter.com/aash_ravi" target="_blank">🐦</a>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-content">
+      <h2 style="text-align:center;margin:20px 0 40px">Portfolio Sections</h2>
+      <div class="card-row">
+        <div class="card" style="background:#f1c40f;color:#000" onclick="showOverlay('summary')">About</div>
+        <div class="card" style="background:#3498db" onclick="showOverlay('experience')">Experience</div>
+        <div class="card" style="background:#2ecc71" onclick="showOverlay('skills')">Skills</div>
+        <div class="card" style="background:#9b59b6" onclick="showOverlay('education')">Education</div>
+      </div>
+    </div>
+  </div>
+`;
+
 function enterProfile() {
-  document.getElementById('usersPage').style.display = 'none';
-  document.getElementById('main').classList.add('visible');
+  var usersPage = document.getElementById('usersPage');
+  usersPage.style.setProperty('display', 'none', 'important');
+  // Insert #main only if it doesn't exist
+  if (!document.getElementById('main')) {
+    document.body.insertAdjacentHTML('beforeend', mainHTML);
+  } else {
+    document.getElementById('main').classList.add('visible');
+  }
 }
 function goBack() {
   document.getElementById('usersPage').style.display = 'flex';
-  document.getElementById('main').classList.remove('visible');
+  // Remove #main from DOM if it exists
+  var main = document.getElementById('main');
+  if (main) main.remove();
   document.querySelectorAll('.overlay').forEach(o => (o.style.display = 'none'));
 }
 function showOverlay(id) {
