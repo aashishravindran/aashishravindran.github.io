@@ -131,18 +131,62 @@
         margin-left: 10px;
       }
     }
+    .main-header {
+      background: #000;
+      padding: 20px 0 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .main-header h1 {
+      margin: 0;
+      color: #e50914;
+      font-size: 2.5em;
+      flex: 1;
+      text-align: center;
+    }
+    .home-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      padding: 0;
+    }
+    @media (max-width: 600px) {
+      .main-header {
+        flex-direction: row;
+        padding: 14px 0 14px 0;
+      }
+      .main-header h1 {
+        font-size: 1.3em;
+        padding-left: 40px;
+      }
+      .home-btn {
+        left: 10px;
+        width: 32px;
+        height: 32px;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="entryAnimation">
     <span class="netflix-initial netflix-initial-left">A</span><span class="netflix-initial netflix-initial-right">R</span>
   </div>
-  <header><h1>Aashish Ravindran</h1></header>
-  <button style="position:fixed;top:20px;left:20px;font-size:1.8em;background:none;border:none;color:#fff;cursor:pointer;z-index:1000" onclick="goBack()">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle">
-      <path d="M3 10.5L12 4L21 10.5V20C21 20.5523 20.5523 21 20 21H16C15.4477 21 15 20.5523 15 20V16C15 15.4477 14.5523 15 14 15H10C9.44772 15 9 15.4477 9 16V20C9 20.5523 8.55228 21 8 21H4C3.44772 21 3 20.5523 3 20V10.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
+  <header class="main-header">
+    <button class="home-btn" onclick="goBack()" aria-label="Home">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle">
+        <path d="M3 10.5L12 4L21 10.5V20C21 20.5523 20.5523 21 20 21H16C15.4477 21 15 20.5523 15 20V16C15 15.4477 14.5523 15 14 15H10C9.44772 15 9 15.4477 9 16V20C9 20.5523 8.55228 21 8 21H4C3.44772 21 3 20.5523 3 20V10.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <h1>Aashish Ravindran</h1>
+  </header>
 
   <div id="usersPage" class="users-page">
     <div class="user-tile" onclick="enterProfile(this)">
@@ -223,10 +267,10 @@ const mainHTML = `
     <div class="portfolio-content">
       <h2 style="text-align:center;margin:20px 0 40px">Portfolio Sections</h2>
       <div class="card-row">
-        <div class="card" style="background:#f1c40f;color:#000" onclick="showOverlay('summary')">About</div>
-        <div class="card" style="background:#3498db" onclick="showOverlay('experience')">Experience</div>
-        <div class="card" style="background:#2ecc71" onclick="showOverlay('skills')">Skills</div>
-        <div class="card" style="background:#9b59b6" onclick="showOverlay('education')">Education</div>
+        <div class="card" style="background:#f1c40f;color:#000">About</div>
+        <div class="card" style="background:#3498db">Experience</div>
+        <div class="card" style="background:#2ecc71">Skills</div>
+        <div class="card" style="background:#9b59b6">Education</div>
       </div>
     </div>
   </div>
@@ -238,6 +282,20 @@ function enterProfile() {
   // Insert #main only if it doesn't exist
   if (!document.getElementById('main')) {
     document.body.insertAdjacentHTML('beforeend', mainHTML);
+    // Add event delegation for card clicks
+    var portfolio = document.querySelector('.portfolio-content');
+    if (portfolio) {
+      portfolio.addEventListener('click', function(e) {
+        var card = e.target.closest('.card');
+        if (card) {
+          var section = card.textContent.trim().toLowerCase();
+          if (section === 'about') showOverlay('summary');
+          if (section === 'experience') showOverlay('experience');
+          if (section === 'skills') showOverlay('skills');
+          if (section === 'education') showOverlay('education');
+        }
+      });
+    }
   } else {
     document.getElementById('main').classList.add('visible');
   }
