@@ -1,118 +1,210 @@
 <!DOCTYPE html>
-<html lang="en"  ng-app="PassportApp">
-	<head>
-		
-		 <meta charset="utf-8">
-
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<meta name="description" content="My Angular Portfolio">
-  	<meta name="author" content="Aashish Ravindran">
-
-    <meta property="og:image" content="https://images.unsplash.com/photo-1500576992153-0271099def59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">   	              
-
-		<title>Aashish Ravindran</title>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="assets/bootstrap-4.0.0/dist/css/bootstrap.min.css">
-
-		
-		<script src="assets/jquery/jquery.min.js" type="text/javascript"></script>
-		<script src="assets/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-	
-		<script src="assets/angular.min.js"></script>
-		<script src="assets/angular-route.js"></script>
-		<script src="assets/route.js" type="text/javascript"></script>
-		<script src="assets/controllers.js" type="text/javascript"></script>
-		
-		<!-- <script type="text/javascript" src="scramble.js"></script> -->
-		 <link href="assets/fontawesome-free/css/all.min.css" rel="stylesheet">
-		<!--  <link href="MDB-Free_4.8.8/css/mdb.min.css" rel="stylesheet"> -->
-		<link rel="stylesheet" href="style.css">
-		<!-- load fontawesome -->
-		</head>
-	<body>
-
-	
-	
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mx-auto">
-  <a class="navbar-brand" href="#home">Aashish Ravindran</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aashish Ravindran | Portfolio</title>
+  <style>
+    body{margin:0;font-family:"Helvetica Neue",sans-serif;background:#141414;color:#fff}
+    header{background:#000;padding:20px;text-align:center}
+    header h1{margin:0;color:#e50914;font-size:2.5em}
+    .users-page{height:100vh;display:flex;justify-content:center;align-items:center}
+    .user-tile{width:200px;height:200px;background:#222;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:1.2rem;cursor:pointer;transition:background .3s,transform .3s,box-shadow .3s;box-shadow:0 2px 6px rgba(0,0,0,.6)}
+    .user-tile:hover{background:#e50914;transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,.8)}
+    #main{display:none;padding:40px}
+    #main.visible{display:block}
+    .card-row{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+    .card{width:250px;height:250px;border-radius:10px;display:flex;justify-content:center;align-items:center;font-weight:bold;background:#333;color:#fff;cursor:pointer;transition:transform .3s,box-shadow .3s;box-shadow:0 2px 6px rgba(0,0,0,.6)}
+    .card:hover{transform:translateY(-6px);box-shadow:0 6px 12px rgba(0,0,0,.8)}
+    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);padding:80px 40px 40px;overflow-y:auto;z-index:999}
+    .overlay .close{position:absolute;top:20px;right:40px;font-size:2em;cursor:pointer}
+    .skill-card{background:#2c3e50;padding:20px;border-radius:10px;width:160px;text-align:center;margin:10px;box-shadow:0 2px 6px rgba(0,0,0,.6)}
+    ul{list-style:square;margin-left:20px}
+    a{color:#1abc9c;text-decoration:none}
+    .profile-section{background:#222;border-radius:10px;padding:30px;margin-bottom:30px;text-align:center}
+    .profile-img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:3px solid #e50914}
+    .social-links{margin-top:20px}
+    .social-links a{margin:0 10px;color:#fff;font-size:1.5em;transition:color .3s}
+    .social-links a:hover{color:#e50914}
+    /* Netflix-style entry animation overlay */
+    #entryAnimation {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s cubic-bezier(0.77,0,0.175,1);
+      opacity: 1;
+      pointer-events: all;
+    }
+    #entryAnimation.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .netflix-initial {
+      font-size: 7vw;
+      font-weight: 900;
+      color: #e50914;
+      text-shadow: 0 0 40px #e50914, 0 0 80px #fff2, 0 0 8px #000;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .netflix-initial-left {
+      animation: float-in-left 0.9s cubic-bezier(0.77,0,0.175,1) 0.1s forwards;
+      margin-right: 0.1em;
+    }
+    .netflix-initial-right {
+      animation: float-in-right 0.9s cubic-bezier(0.77,0,0.175,1) 0.3s forwards;
+    }
+    @keyframes float-in-left {
+      0% { opacity: 0; transform: translateX(-120px) translateY(40px) scale(0.7); }
+      60% { opacity: 1; transform: translateX(10px) translateY(-10px) scale(1.1); }
+      100% { opacity: 1; transform: translateX(0) translateY(0) scale(1); }
+    }
+    @keyframes float-in-right {
+      0% { opacity: 0; transform: translateX(120px) translateY(40px) scale(0.7); }
+      60% { opacity: 1; transform: translateX(-10px) translateY(-10px) scale(1.1); }
+      100% { opacity: 1; transform: translateX(0) translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div id="entryAnimation">
+    <span class="netflix-initial netflix-initial-left">A</span><span class="netflix-initial netflix-initial-right">R</span>
+  </div>
+  <header><h1>Aashish Ravindran</h1></header>
+  <button style="position:fixed;top:20px;left:20px;font-size:1.8em;background:none;border:none;color:#fff;cursor:pointer;z-index:1000" onclick="goBack()">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle">
+      <path d="M3 10.5L12 4L21 10.5V20C21 20.5523 20.5523 21 20 21H16C15.4477 21 15 20.5523 15 20V16C15 15.4477 14.5523 15 14 15H10C9.44772 15 9 15.4477 9 16V20C9 20.5523 8.55228 21 8 21H4C3.44772 21 3 20.5523 3 20V10.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a   class="nav-link" href="#home">About <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a  class="nav-link" href="#exp">Experience</a>
-      </li>
-       <li class="nav-item">
-        <a  class="nav-link" href="#projects">Projects</a>
-      </li>
-        
-        <li class="nav-item">
-        <a class="nav-link" href="#education">Education</a>
-      </li>
-      
+
+  <div id="usersPage" class="users-page">
+    <div class="user-tile" onclick="enterProfile(this)">
+      <div style="font-size:3em;margin-bottom:10px">👤</div>
+      View Portfolio
+    </div>
+  </div>
+
+  <div id="main">
+    <div class="profile-section">
+      <img src="profile.jpg" alt="Aashish Ravindran" class="profile-img">
+      <h2>Aashish Ravindran</h2>
+      <p><strong>SDE @ Amazon Web Services</strong></p>
+      <p>📍 Seattle, WA</p>
+      <p>📧 <a href="mailto:raashish5594.ar@gmail.com">raashish5594.ar@gmail.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com/aashishravindran" target="_blank">📱</a>
+        <a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" target="_blank">💼</a>
+        <a href="https://twitter.com/aash_ravi" target="_blank">🐦</a>
+      </div>
+    </div>
+
+    <h2 style="text-align:center;margin:20px 0 40px">Portfolio Sections</h2>
+    <div class="card-row">
+      <div class="card" style="background:#f1c40f;color:#000" onclick="showOverlay('summary')">About</div>
+      <div class="card" style="background:#3498db" onclick="showOverlay('experience')">Experience</div>
+      <div class="card" style="background:#2ecc71" onclick="showOverlay('skills')">Skills</div>
+      <div class="card" style="background:#9b59b6" onclick="showOverlay('education')">Education</div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div id="summary" class="overlay">
+    <span class="close" onclick="closeOverlay(this)">&times;</span>
+    <h2>About Me</h2>
+    <ul style="max-width:800px;line-height:1.8">
+      <li>Impact‑focused Software Engineer with 7+ years building scalable backend systems and cloud infrastructure.</li>
+      <li>5+ years at Amazon Web Services and prior development at Accenture.</li>
+      <li>Delivered robust APIs, accelerated deployments, and mentored engineers.</li>
+      <li>Proficient in Java, Python, AWS, and automation tooling.</li>
+      <li>Passionate about building scalable solutions and mentoring junior developers.</li>
     </ul>
   </div>
-</nav>
-		
-		<div class="container-fluid resume-section">
-			<div class="row">
-				<div class="col-12 col-md-4">
-					<div class="card length">
-						
-						
-  			<img class="card-img-top profile-card" src="profile.jpg" alt="Card image cap">
-  			
-  			<div class="card-body">
-  				
-                
-         	 	<p class="socials"><i class="fa fa-briefcase"></i>SDE @ Amazon Web Services</p>
-          		<p class="socials"><i class="fa fa-home"></i>Seattle, WA</p>
-          		<p class="socials"><i class="fa fa-envelope"></i><a class="card-link" id="mail" href="mailto:">raashish5594.ar@gmail.com</p></a>
-                <hr>
-                <p class="socials"><i class="fab fa-github fa-fw  w3-large"></i><a href="https://github.com/aashishravindran" class="card-link">Github</a></p>
-          		
-                <p class="socials"><i class="fab fa-linkedin-in fa-fw  w3-large"></i><a href="https://www.linkedin.com/in/aashish-ravindran-546b89aa/" class="card-link">LinkedIn</a></p>
-                <p class="socials"><i class="fab fa-twitter fa-fw  w3-large"></i><a href="https://twitter.com/aash_ravi" class="card-link">Twitter</a></p>
-                    
-    			
- 				  				 
- 				
- 				 </div>
-				</div>
-				</div>
 
-			<div class="col-12 col-md-8">
-			<div ng-view></div>
+  <!-- Experience -->
+  <div id="experience" class="overlay">
+    <span class="close" onclick="closeOverlay(this)">&times;</span>
+    <h2>Professional Experience</h2>
+    <ul style="max-width:800px;line-height:1.8">
+      <li><strong>AWS — SDE II</strong><span style="float:right">Jul 2022 – Present</span>
+        <ul>
+          <li>Reduced quota approval time from 3 days to &lt;50 min via per‑resource APIs.</li>
+          <li>Cut onboarding from 2 weeks to 1 day with scalable metadata ingestion.</li>
+          <li>Automated infra; deployments 85% faster.</li>
+        </ul>
+      </li>
+      <li><strong>AWS — SDE I</strong><span style="float:right">Mar 2020 – Jun 2022</span>
+        <ul>
+          <li>Boosted deployment velocity 50% by removing CI/CD blockers.</li>
+          <li>Built quota‑automation; Scrum Master for team.</li>
+        </ul>
+      </li>
+      <li><strong>Accenture</strong><span style="float:right">Mar 2016 – Jun 2018</span>
+        <ul><li>Developed BI dashboards in QlikView.</li></ul>
+      </li>
+    </ul>
+  </div>
 
-		</div>
+  <!-- Skills -->
+  <div id="skills" class="overlay">
+    <span class="close" onclick="closeOverlay(this)">&times;</span>
+    <h2>Skills</h2>
+    <h3 style="text-align:center;margin:30px 0 10px">Languages</h3>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center">
+      <div class="skill-card"><img src="https://img.icons8.com/color/96/java-coffee-cup-logo.png" style="width:50px" alt="Java"><p>Java</p></div>
+      <div class="skill-card"><img src="https://img.icons8.com/color/96/python.png" style="width:50px" alt="Python"><p>Python</p></div>
+      <div class="skill-card"><img src="https://img.icons8.com/color/96/ruby-programming-language.png" style="width:50px" alt="Ruby"><p>Ruby</p></div>
+    </div>
+    <h3 style="text-align:center;margin:40px 0 10px">Cloud & Infrastructure</h3>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center">
+      <div class="skill-card" style="width:180px"><img src="https://img.icons8.com/color/96/amazon-web-services.png" style="width:50px" alt="AWS"><p>AWS / IaC</p></div>
+    </div>
+    <h3 style="text-align:center;margin:40px 0 10px">Visualization</h3>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center"><div class="skill-card" style="width:180px"><img src="https://img.icons8.com/ios-filled/100/66ccff/line-chart.png" style="width:50px" alt="Qlik"><p>QlikView / Qlik Sense</p></div></div>
+  </div>
 
+  <!-- Education -->
+  <div id="education" class="overlay">
+    <span class="close" onclick="closeOverlay(this)">&times;</span>
+    <h2>Education</h2>
+    <ul style="max-width:800px;line-height:1.8">
+      <li><strong>MS — Computer Engineering</strong><span style="float:right">2018 – 2019</span><br>Stony Brook University</li>
+      <li><strong>BE — Electrical & Electronics Eng.</strong><span style="float:right">2012 – 2016</span><br>Kumaraguru College of Technology</li>
+    </ul>
+  </div>
 
-	</div>	
-
-		
-	<footer class="page-footer font-small indigo">
-	 	<div class="footer-copyright text-center py-3">© 2019 Copyright:
-    	<a href="https://github.com/aashishravindran/">Aashish Ravindran</a>
-  		</div>
-
-	</footer>
-		
-</div>	
-
-</body>
 <script>
-	$(document).ready(function() {
-    $(document).on('click', '.nav-item a', function (e) {
-        $(this).parent().addClass('active').siblings().removeClass('active');
-    });
+function enterProfile() {
+  document.getElementById('usersPage').style.display = 'none';
+  document.getElementById('main').classList.add('visible');
+}
+function goBack() {
+  document.getElementById('usersPage').style.display = 'flex';
+  document.getElementById('main').classList.remove('visible');
+  document.querySelectorAll('.overlay').forEach(o => (o.style.display = 'none'));
+}
+function showOverlay(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = 'block';
+}
+function closeOverlay(btn) {
+  const ov = btn.closest('.overlay');
+  if (ov) ov.style.display = 'none';
+}
+window.addEventListener('DOMContentLoaded', function() {
+  const entry = document.getElementById('entryAnimation');
+  setTimeout(() => {
+    entry.classList.add('hide');
+    setTimeout(() => entry.style.display = 'none', 1600);
+  }, 1600);
 });
 </script>
+</body>
 </html>
 
 
